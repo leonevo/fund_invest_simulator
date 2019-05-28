@@ -1,0 +1,16 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+verify_ssl = false
+
+[dev-packages]
+
+[packages]
+ipython = "*"
+django = "*"
+requests = "*"
+djangorestframework = "*"
+bootstrap-admin = "*"
+
+[requires]
+python_version = "3.7"
