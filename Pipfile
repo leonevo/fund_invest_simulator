@@ -11,6 +11,8 @@ django = "*"
 requests = "*"
 djangorestframework = "*"
 bootstrap-admin = "*"
+baostock = "*"
+lxml = "*"
 
 [requires]
 python_version = "3.7"
