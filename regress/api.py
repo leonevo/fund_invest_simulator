@@ -3,6 +3,7 @@ import json
 import re
 import pandas as pd
 
+
 def jsonp2json(jsonp_response):
     j = json.loads(re.findall(r'^\w+\((.*)\)$', jsonp_response)[0])
     print(type(j), j)
@@ -12,7 +13,6 @@ def jsonp2json(jsonp_response):
 def get_fund_value(fund_code, start_date, end_date):
     url = "http://fund.eastmoney.com/f10/F10DataApi.aspx?type=lsjz&code=%s&page=%d&sdate=%s&edate=%s" % \
           (fund_code, 1, start_date, end_date)
-    print(url)
     r = requests.get(url)
     result_str = str(r.content, encoding="utf-8")
     r2 = re.findall('apidata=(.*);', result_str)[0]
@@ -26,7 +26,7 @@ def get_fund_value(fund_code, start_date, end_date):
         for i in range(2, page_count+2):
             url2 = "http://fund.eastmoney.com/f10/F10DataApi.aspx?type=lsjz&code=%s&page=%d&sdate=%s&edate=%s" % \
                    (fund_code, i, start_date, end_date)
-            r = requests.get(url)
+            r = requests.get(url2)
             result_str = str(r.content, encoding="utf-8")
             r2 = re.findall('apidata=(.*);', result_str)[0]
             table_str = re.findall('content:"(.*)"', r2)[0]
@@ -36,4 +36,4 @@ def get_fund_value(fund_code, start_date, end_date):
 
 
 if __name__ == '__main__':
-    get_fund_value('519069', '2019-05-01', '2019-05-30')
+    print(get_fund_value('519069', '2018-05-01', '2019-05-30'))
