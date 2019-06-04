@@ -4,9 +4,9 @@ from django.db import models
 
 
 class transation_log(models.Model):
-    product_code = models.CharField(max_length=20)
-    product_name = models.CharField(max_length=50)
-    transation_date = models.DateField()
+    product_code = models.CharField(max_length=20,verbose_name='产品编码')
+    product_name = models.CharField(max_length=50, verbose_name='产品名称')
+    transation_date = models.DateField(verbose_name='交易日期')
     TRANSACTION_TYPE_CHOICES = (
         ('SELL', '卖出'),
         ('BUY', '买入'),
